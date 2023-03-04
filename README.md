@@ -45,7 +45,7 @@ $("#send-message").addEventListener("click", (e) => {
 });
 ```
 
-### clicnt response
+### client response
 
 ```JS
 socket.on("update", (msg) => {
