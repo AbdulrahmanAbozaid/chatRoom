@@ -26,6 +26,7 @@ $("#send-message").addEventListener("click", (e) => {
 });
 
 function displayMessage(msg, type) {
+  let messages = $(".chat-screen>.messages");
   switch (type) {
     case "me":
       let ele = document.createElement("div");
@@ -36,7 +37,7 @@ function displayMessage(msg, type) {
           <div class='text'>${msg.text}</div>
           </div>
         `;
-      $(".chat-screen>.messages").append(ele);
+      messages.append(ele);
       break;
 
     case "other":
@@ -48,23 +49,21 @@ function displayMessage(msg, type) {
             <div class='text'>${msg.text}</div>
             </div>
           `;
-      $(".chat-screen>.messages").append(_ele);
+      messages.append(_ele);
       break;
 
     case "update":
       let upEle = document.createElement("div");
       upEle.textContent = msg;
       upEle.classList.add("update");
-      $(".chat-screen>.messages").append(upEle);
+      messages.append(upEle);
       break;
 
     default:
       console.log("not found case");
   }
 
-  $(".chat-screen>.messages").scrollTop =
-    $(".chat-screen>.messages").scrollHeight -
-    $(".chat-screen>.messages").clientHeight;
+  messages.scrollTop = messages.scrollHeight - messages.clientHeight;
 }
 
 // Events
