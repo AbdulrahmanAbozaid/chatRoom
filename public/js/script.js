@@ -61,6 +61,10 @@ function displayMessage(msg, type) {
     default:
       console.log("not found case");
   }
+
+  $(".chat-screen>.messages").scrollTop =
+    $(".chat-screen>.messages").scrollHeight -
+    $(".chat-screen>.messages").clientHeight;
 }
 
 // Events
